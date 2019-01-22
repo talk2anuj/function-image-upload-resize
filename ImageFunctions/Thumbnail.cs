@@ -74,7 +74,7 @@ namespace ImageFunctions
         [FunctionName("Thumbnail")]
         public static async Task Run(
             [EventGridTrigger]EventGridEvent eventGridEvent,
-            [Blob("{data.url}", FileAccess.Read)] Stream input,
+            [Blob("{data.url}", FileAccess.Read, Connection = "myblobstorage_STORAGE")] Stream input,
             ILogger log)
         {
             try
